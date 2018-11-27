@@ -10,6 +10,8 @@
 	<!--类型别名 -->
 	<typeAliases>
 			<typeAlias type="com.pojo.JobIssue" alias="jobissue" />
+			<typeAlias type="com.pojo.Department" alias="department" />
+			<typeAlias type="com.pojo.Sign" alias="sign" />
 	</typeAliases>
 	<!-- <typeAliases>
 		<typeAlias type="com.pojo.BookUser" alias="buser" />

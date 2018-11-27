@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div title="薪酬管理" data-options="iconCls:'icon-reload'">               
                 <ul id="tree" class="easyui-tree">
                     <li>
-                        <a href="customer.html" class="menuA">薪酬管理</a>
+                        <a href="<%=path %>/salarysign" class="menuA"><% String x="薪酬标准管理"; %><%=x %></a>
                     </li>
 
                 </ul>

@@ -1,10 +1,13 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 
-
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    
+    <base href="<%=basePath%>">
     
     <title>薪酬登记</title>
 	
@@ -41,40 +44,69 @@
   			
   		
   		}
+  		
   	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	</style>
-  	
-  	
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		
+			
+		$("#btn").click(function(){
+		
+		var sval = $("#_from").serialize()
+		 $.ajax({
+			url:"<%=request.getContextPath()%>/Salarysign",
+			data:sval,
+			type:"post",
+			dataType:"json",
+			success:function(val){
+				alert(aa);
+			}
+			
+			
+			})
+			
+			
+		});
+		$("#btn1").click(function(){
+			var salary_id  = $("#Sid").val();
+			location.herf="<%=path %>/Salarysignfuhe?salary_id";
+		
+		
+		})
+		
+			
+		
+});
+	
+	
+	
+	</script>
+	
+
+	
  <body>
   			<div class="body">
   				
   				<div id="_body">
   				<p>薪酬管理&gt;&gt;薪酬标准管理&gt;&gt;标准登记</p>
-  					<form action="" method="post" id="_from">
+  					<form  method="post" id="_from">
   						<table  style="line-height:70px;margin-left:20px;" >
   								<tr>
   								<td>薪资标准编号：</td>
-  								<td><input class="easyui-textbox" type="text" name="salaryid"  /></td>
+  								<td><input class="easyui-textbox" id="Sid" type="text" name="salary_id"  /></td>
   								<td>薪资标准名称：</td>
-  								<td><input class="easyui-textbox" type="text" name="salaryname"  /></td>
+  								<td><input class="easyui-textbox" type="text" name="salary_strandname"  /></td>
   								<td>薪资总额</td>
-  								<td><input class="easyui-textbox" type="text" name="salarysum"  /></td>
+  								<td><input class="easyui-textbox" id="moneycount" type="text" name="sum_money"  /></td>
   								</tr>
   								<tr>
   								<td>制定人：</td>
-  								<td><input class="easyui-textbox" type="text" name="zhidingren"  /></td>
+  								<td><input class="easyui-textbox" type="text" name="maker"  /></td>
   								<td>登记人：</td>
-  								<td><input class="easyui-textbox" type="text" name="dengjiren"  /></td>
+  								<td><input class="easyui-textbox" type="text" name="signer"  /></td>
   								<td>登记时间：</td>
-  								<td><input class="easyui-datetimebox"  style="width:173px;"></td>
+  								<td><input class="easyui-datetimebox" name="sign_time"  style="width:173px;"></td>
   							</tr>
   						</table>
   						
@@ -89,42 +121,42 @@
 								<tr>
 								<td>1</td>
 								<td>基本工资</td>
-								<td><input class="easyui-textbox" type="text" name="zhidingren"  /></td>
+								<td><input class="easyui-textbox" id="A" type="text" name="basic_salary"  /></td>
 								</tr>
 								<tr>
 								<td>2</td>
 								<td>绩效奖金</td>
-								<td><input class="easyui-textbox" type="text" name="zhidingren"  /></td>
+								<td><input class="easyui-textbox" id="B" type="text" name="jixiao_jiangjin"  /></td>
 								</tr>
 								<tr>
 								<td>3</td>
 								<td>交通补助</td>
-								<td><input class="easyui-textbox" type="text" name="zhidingren"  /></td>
+								<td><input class="easyui-textbox" id="C" type="text" name="trans_help"  /></td>
 								</tr>
 								<tr>
 								<td>4</td>
 								<td>通讯补助</td>
-								<td><input class="easyui-textbox" type="text" name="zhidingren"  /></td>
+								<td><input class="easyui-textbox" id="D" type="text" name="relation_help"  /></td>
 								</tr>
 								<tr>
 								<td>5</td>
 								<td>餐补</td>
-								<td><input class="easyui-textbox" type="text" name="zhidingren"  /></td>
+								<td><input class="easyui-textbox" id="E" type="text" name="food_help"  /></td>
 								</tr>
 								<tr>
 								<td>6</td>
 								<td>住房补助</td>
-								<td><input class="easyui-textbox" type="text" name="zhidingren"  /></td>
+								<td><input class="easyui-textbox" id="F" type="text" name="house_help"  /></td>
 								</tr>
 								<tr>
 								<td>7</td>
 								<td>出差补助</td>
-								<td><input class="easyui-textbox" type="text" name="zhidingren"  /></td>
+								<td><input class="easyui-textbox" id="G" type="text" name="chuchai_help"  /></td>
 								</tr>
 								<tr>
 								<td>8</td>
 								<td>加班补助</td>
-								<td><input class="easyui-textbox" type="text" name="zhidingren"  /></td>
+								<td><input class="easyui-textbox" id="H" type="text" name="working_help"  /></td>
 								</tr>
 							</thead>
 						</table>
@@ -136,10 +168,10 @@
   					
   					
   					<div style="margin:140px auto 0 300px ">
+							<input id="btn" type="submit" style="width:100px;" value="保存" class="easyui-button c8">
+							<a id="btn1" href="#"  style="width:100px;" class="easyui-linkbutton c8">审核复核</a>
+							<a id="btn2" href="#"  style="width:100px;" class="easyui-linkbutton c8">返回</a>
 						
-						<a href="#" class="easyui-linkbutton c8" style="width:100px">保存</a>
-						<a href="#" class="easyui-linkbutton c8" style="width:100px">审核复核</a>
-						<a href="#" class="easyui-linkbutton c8" style="width:100px">返回</a>
 					</div>
   					
   					

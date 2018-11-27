@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.SalarySign">
+	<!-- 薪酬标准登记 -->
+	<insert id="addSalarySign" parameterType="sign">
+			insert into Sign(salary_id,salary_strandname,sum_money,maker,signer,
+			sign_time,basic_salary,
+			jixiao_jiangjin,trans_help,relation_help,food_help,house_help,
+			chuchai_help,working_help
+			) 
+			values(
+			#{salary_id},#{salary_strandname},#{sum_money},#{maker},#{signer},
+			#{sign_time},#{basic_salary},#{jixiao_jiangjin},#{trans_help},#{relation_help},#{food_help},
+			#{house_help},#{chuchai_help},#{working_help}
+			)
+	
+	
+	
+	</insert>
+	<!-- 薪酬复核查询 -->
+	<select	id="getSignMessage" parameterType="int" resultType="sign">
+			select * from Sign where salary_id=#{salary_id}
+	</select>
+	<!-- 薪酬复核修改 -->
+	<update id="updateSign" parameterType="int">
+			update Sign set compare=#{compare} where salary_id=#{salary_id}
+	
+	
+	</update>
+
+
+
+
+
+</mapper>
