@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.IUserDao">
+	<!-- 查询用户 -->
+	<select id="getUserList" parameterType="int" resultType="com.pojo.Users">
+		select * from  (select sys_user.*, rownum rownum_
+		from sys_user
+		where rownum &lt;=#{0} * #{1})
+		where rownum_ &gt;( #{0}-1) * #{1}
+				
+	</select>
+	<select id="getCount" resultType="int">
+		select count(id) from sys_user
+	</select>
+	
+	<!-- 添加用户 -->
+	<insert id="addUsers" parameterType="com.pojo.Users">
+		insert into sys_user values(sql1.nextval,#{usercode},#{username},#{password},#{salt},#{locked})
+	</insert>
+	
+	<!-- 删除用户 -->
+	<delete id="delUsers" parameterType="int">
+		delete from sys_user where id=#{id}
+	</delete>
+	<!-- 修改用户 -->
+	<update id="editUsers" parameterType="com.pojo.Users">
+		update sys_user set usercode=#{usercode},username=#{username},
+			password=#{password},salt=#{salt},locked=#{locked} where id=#{id}
+	</update>
+</mapper>

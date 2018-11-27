@@ -37,7 +37,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <li>
                         <a href="<%=path %>/userManager" class="menuA">用户管理</a>
                     </li>
-
+					<li>
+                        <a href="<%=path %>" class="menuA">组织结构设置</a>
+                    </li>
+                    <li>
+                        <a href="<%=path %>" class="menuA">职位设置</a>
+                    </li>
+                    <li>
+                        <a href="<%=path %>" class="menuA">职称设置</a>
+                    </li>
+                    <li>
+                        <a href="<%=path %>/" class="menuA">题库管理设置</a>
+                    </li>
+                    <li>
+                        <a href="<%=path %>/" class="menuA">公共属性设置</a>
+                    </li>
+                    <li>
+                        <a href="<%=path %>/" class="menuA">薪酬项目设置</a>
+                    </li>
                 </ul>
             </div>
             <div title="人事管理" data-options="iconCls:'icon-reload'" style="padding:10px;">                
@@ -88,7 +105,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div data-options="region:'center'">
         <div id="tt" class="easyui-tabs" data-options="fit:true">
             <div title="首页" data-options="closable:true" style="overflow:auto;padding:20px">
-              
+              	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				  <tr>
+				    <td align="center"><img src="<%=request.getContextPath() %>/static/images/welcome.gif" width="290" height="92" /></td>
+				  </tr>
+				</table>
             </div>
         </div>
 
