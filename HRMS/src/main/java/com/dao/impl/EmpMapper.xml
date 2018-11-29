@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.IEmpDao">
+	<!-- 认识档案登记 -->
+	<insert id="addEmps" parameterType="com.pojo.Emps">
+		insert into emp values(sql3.nextval,#{dept_id},#{job_id},#{dept_name},#{job_num},#{job_name},
+		#{emp_name},#{sex},#{email},#{phone},#{idcard},#{address},#{registry},#{university},#{education},
+		#{specialty},#{salary},#{bank},#{booker},#{booker_date},#{social_security},#{banker},null,null,null,#{dangan})
+	</insert>
+	
+	<!-- 查询档案状态 -->
+	<select id="getDangEmps" parameterType="com.pojo.Emps" resultType="com.pojo.Emps">
+		select * from emp where dangan=#{dangan}
+	</select>													
+</mapper>
