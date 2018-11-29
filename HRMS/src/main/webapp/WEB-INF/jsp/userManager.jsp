@@ -107,7 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- 修改用户的表单，默认是隐藏的 -->
 	<div id="UpDialog" class="easyui-window" title="添加用户" style="width:380px;height:300px"   
 	        data-options="iconCls:'icon-save',modal:true,closed:true">
-    	<form id="myform" action="" method="post">
+    	<form id="myform" method="post">
 			<input type="hidden" name="id" value="" />
 			<table>
 				<tr>
