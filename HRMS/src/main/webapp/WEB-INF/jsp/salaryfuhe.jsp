@@ -54,18 +54,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	
   	
   	</style>
+  	<script type="text/javascript">
+  		$(document).ready(function(){
+  			show();
+  			function show(){
+  			$.ajax({
+  				url:"<%=request.getContextPath()%>/FuHe",
+  				data:null,
+  				dataType:"json",
+  				type:"get",
+  				success:function(val){
+  					alert(val);
+  				
+  				
+  				
+  				
+  				
+  				
+  				}
+  			})
+  		
+  		}
+  			
+});
+  		
+  		
+  	
+  	
+  	</script>
   	
   	
  <body>
   			<div class="body">
-  				
+  				<input >
   				<div id="_body">
   				<p>薪酬管理&gt;&gt;薪酬标准管理&gt;&gt;标准登记</p>
   					<form action="" method="post" id="_from">
   						<table  style="line-height:70px;margin-left:20px;" >
+  						
   								<tr>
   								<td>薪资标准编号：</td>
-  								<td><input class="easyui-textbox" type="text" name="salaryid"  /></td>
+  								<td><input class="easyui-textbox" type="text" name="salaryid" value="${sign.getSalaryid} " /></td>
   								<td>薪资标准名称：</td>
   								<td><input class="easyui-textbox" type="text" name="salaryname"  /></td>
   								<td>薪资总额</td>

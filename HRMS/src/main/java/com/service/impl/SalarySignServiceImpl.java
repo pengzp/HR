@@ -50,12 +50,14 @@ public class SalarySignServiceImpl implements SalarySignService {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		
 		SalarySignService userService = (SalarySignService) ctx.getBean("salarySignService");
-		Sign sign1 = new Sign();
-		sign1.setCompare("zheshiyidan测试");
-		sign1.setSalary_id(323);
-		
-		boolean x = userService.updateSign(sign1);
-		System.out.println(x);
+//		Sign sign1 = new Sign();
+//		sign1.setCompare("zheshiyidan测试");
+//		sign1.setSalary_id(323);
+//		
+//		boolean x = userService.updateSign(sign1);
+//		System.out.println(x);
+		Sign sign = userService.getSignMessage();
+		System.out.println(sign.getSign_time());
 		
 		
 		
@@ -72,9 +74,9 @@ public class SalarySignServiceImpl implements SalarySignService {
 	 * @see com.service.SalarySignService#getSignMessage(int)
 	 */
 	@Override
-	public Sign getSignMessage(int salary_id) {
+	public Sign getSignMessage() {
 		
-		return salarySign.getSignMessage(salary_id);
+		return salarySign.getSignMessage();
 	}
 	/*
 	 * 薪酬复核修改

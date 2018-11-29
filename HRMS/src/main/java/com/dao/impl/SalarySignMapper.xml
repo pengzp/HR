@@ -7,20 +7,20 @@
 			insert into Sign(salary_id,salary_strandname,sum_money,maker,signer,
 			sign_time,basic_salary,
 			jixiao_jiangjin,trans_help,relation_help,food_help,house_help,
-			chuchai_help,working_help
+			chuchai_help,working_help,check_status
 			) 
 			values(
 			#{salary_id},#{salary_strandname},#{sum_money},#{maker},#{signer},
 			#{sign_time},#{basic_salary},#{jixiao_jiangjin},#{trans_help},#{relation_help},#{food_help},
-			#{house_help},#{chuchai_help},#{working_help}
+			#{house_help},#{chuchai_help},#{working_help},'审核中'
 			)
 	
 	
 	
 	</insert>
 	<!-- 薪酬复核查询 -->
-	<select	id="getSignMessage" parameterType="int" resultType="sign">
-			select * from Sign where salary_id=#{salary_id}
+	<select	id="getSignMessage" resultType="sign">
+			select * from Sign 
 	</select>
 	<!-- 薪酬复核修改 -->
 	<update id="updateSign" parameterType="int">

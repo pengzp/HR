@@ -43,6 +43,9 @@
   		}
   	
   	
+</style>
+  	<script type="text/javascript">
+  		$
   	
   	
   	
@@ -50,7 +53,26 @@
   	
   	
   	
-  	</style>
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	</script>
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
   	
   	
  <body>
@@ -65,7 +87,13 @@
   								<td><input class="easyui-textbox" type="text" name="salaryid"  /></td>
   								<td>审核状态</td>
   								<td>
-  								<input class="easyui-textbox" type="text" name="salarysum"  />
+  								<select id="cc" class="easyui-combobox" name="dept" style="width:173px;">
+    								
+    								<option checked>---</option>
+    								<option>审核中</option>
+    								<option>审核通过</option>
+    								
+									</select>
 								</td>
   								<td>登记时间</td>
   								<td>
@@ -86,7 +114,7 @@
 								<tr>
 									<th field="薪酬标准编码" width="100" align="center">薪酬标准编码</th>
 									<th field="薪酬标准名称" width="160" align="center">薪酬标准名称</th>
-									<th field="审核状态" width="200" align="center" >审核状态</th>
+									<th field="审核状态" width="200" align="center" >审核状态</th>
 									<th field="登记时间" width="120" align="center">登记时间</th>
 									<th field="操作" width="230" align="center">操作</th>
 								</tr>

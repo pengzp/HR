@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			type:"post",
 			dataType:"json",
 			success:function(val){
-				alert(aa);
+				alert(val);
 			}
 			
 			
@@ -68,12 +68,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			
 		});
-		$("#btn1").click(function(){
-			var salary_id  = $("#Sid").val();
-			location.herf="<%=path %>/Salarysignfuhe?salary_id";
+		
+				
+				
+				
+				
+				
+  					
+			
+			
 		
 		
-		})
+		
 		
 			
 		
@@ -94,7 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   						<table  style="line-height:70px;margin-left:20px;" >
   								<tr>
   								<td>薪资标准编号：</td>
-  								<td><input class="easyui-textbox" id="Sid" type="text" name="salary_id"  /></td>
+  								<td><input class="easyui-textbox" id="Sid" type="text" name="salary_id"  value=""/></td>
   								<td>薪资标准名称：</td>
   								<td><input class="easyui-textbox" type="text" name="salary_strandname"  /></td>
   								<td>薪资总额</td>
@@ -168,9 +174,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   					
   					
   					<div style="margin:140px auto 0 300px ">
-							<input id="btn" type="submit" style="width:100px;" value="保存" class="easyui-button c8">
-							<a id="btn1" href="#"  style="width:100px;" class="easyui-linkbutton c8">审核复核</a>
-							<a id="btn2" href="#"  style="width:100px;" class="easyui-linkbutton c8">返回</a>
+							<input id="btn" type="submit" style="width:100px;background:#2685FC;" value="保存" >
+							<input id="btn" type="submit" style="width:100px;background:#2685FC;" value="审核复核" >
+							<input id="btn1" onclick="window.close();" type="button" style="width:100px;background:#2685FC;" value="返回" >
 						
 					</div>
   					
