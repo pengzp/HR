@@ -29,8 +29,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body class="easyui-layout">
-    <div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px;font-size: 18px;line-height: 40px">人力资源管理系统</div>
-    <div data-options="region:'west',split:true,title:'菜单'" style="width:260px;padding:10px;padding: 0">
+    <div data-options="region:'north',border:false" style="height:60px;background:url('<%=request.getContextPath() %>/static/images/back1.jpg') no-repeat;padding:10px;font-size:18px;line-height: 40px;position: relative">
+    	<span style="margin-left:40px;font-size: 22px;line-height: 40px;color:white">人力资源系统管理</span>
+		
+		<a id="btn" href="<%=path%>/userLogin" class="easyui-linkbutton" data-options="iconCls:'icon-man'" style="margin-left:950px;">欢迎<span>管理员</span>登录</a>  
+		
+		 
+		
+		<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-undo'">退出登录</a>  
+
+    	
+    </div>
+    <div data-options="region:'west',split:true,title:'菜单'" style="width:250px;padding: 0">
         <div id="aa" class="easyui-accordion" data-options="fit:true">
             <div title="系统设置" data-options="iconCls:'icon-save'" style="overflow:auto;padding:0;">
                 <ul id="tree" class="easyui-tree">
@@ -57,12 +67,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </li>
                 </ul>
             </div>
-            <div title="人事管理" data-options="iconCls:'icon-reload'" style="padding:10px;">                
+            <div title="人事管理" data-options="iconCls:'icon-user'" style="padding:0px;">                
 				<ul id="tree" class="easyui-tree">
                     <li>
-                        <a href="customer.html" class="menuA">人事档案登记</a>
+                        <a href="<%=path %>/empManager" class="menuA">人事档案登记</a>
                     </li>
-
+					<li>
+                        <a href="<%=path %>" class="menuA">人事档案复核</a>
+                    </li>
+                    <li>
+                        <a href="<%=path %>" class="menuA">人事档案查询</a>
+                    </li>
+                    <li>
+                        <a href="<%=path %>" class="menuA">人事档案变更</a>
+                    </li>
+                    <li>
+                        <a href="<%=path %>" class="menuA">人事档案删除管理</a>
+                    </li>
                 </ul>
             </div>
             <div title="招聘管理" data-options="iconCls:'icon-reload'">               
@@ -100,11 +121,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
 
     </div>
-    <div data-options="region:'east',split:true,title:'East'" style="width:100px;padding:10px;">east region</div>
-    <div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
+    <div data-options="region:'east',split:true,title:'East'" style="width:120px;padding:10px;">
+    	<a id="btn" href="<%=path%>/userLogin" class="easyui-linkbutton" data-options="iconCls:'icon-man'">切换登录</a>  
+		<br>
+		<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-lock'">修改密码</a>  
+		
+		 
+    	
+    </div>
+    <div data-options="region:'south',border:false" style="height:50px;background:#000A3B;padding:10px;color:white">企业人力资源管理</div>
     <div data-options="region:'center'">
-        <div id="tt" class="easyui-tabs" data-options="fit:true">
-            <div title="首页" data-options="closable:true" style="overflow:auto;padding:20px">
+        <div id="tt" class="easyui-tabs" data-options="fit:true"  style="background:#F3FDF6">
+            <div title="首页" data-options="closable:true" style="overflow:auto;padding:20px;background:#F3FDF6">
               	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 				  <tr>
 				    <td align="center"><img src="<%=request.getContextPath() %>/static/images/welcome.gif" width="290" height="92" /></td>
