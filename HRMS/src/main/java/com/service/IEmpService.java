@@ -3,6 +3,7 @@ package com.service;
 import java.util.List;
 
 import com.pojo.Emps;
+import com.pojo.Image;
 
 public interface IEmpService {
 
@@ -11,4 +12,14 @@ public interface IEmpService {
 	
 	//查询档案状态的信息
 	public List<Emps> getDangEmps(Emps emps);
+	
+	//修改审核信息
+	public boolean updateEmps(Emps emps);
+	
+	//查询所有的列表信息
+	public List<Emps> getEmpsList();
+	
+	
+	//上传图片
+	public boolean upload(Image image);
 }

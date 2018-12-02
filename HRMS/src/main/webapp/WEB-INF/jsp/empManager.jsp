@@ -176,6 +176,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>  
             </form>
         </table>
+        <br>
+        <div id="load">
+        	<form id="upload" method="post" enctype="multipart/form-data">
+        		文件上传：<input type="file" name="nfile" id="nfile">
+        		<button id="btn_import" onclick="return false">导入</button>
+        	</form>
+        </div>
     </div>
   </body>
   <script type="text/javascript">
@@ -196,9 +203,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   						alert(val);
   					}
   				});
-  			})
+  			});
+  			
+  		$("#btn_import").click(function() {
+		//避免重复点击,上传多次文件
+		//$("button").attr("disabled", "disabled");
+		//alert($("button"));
+		var formData = new FormData($("#upload")[0]);  
+		$.ajax({
+			url : '<%=request.getContextPath()%>/uploadImage',
+			type : 'post',
+			data : formData,
+			dataType : 'json',
+			cache : false,
+			contentType : false,
+			processData : false,
+
+			success : function(data) {
+				alert(data);
+			}
+		});
+	});
   		
-  		})  	
-  </script>
+ })  	
+</script>
   
 </html>

@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <a href="<%=path %>/userManager" class="menuA">用户管理</a>
                     </li>
 					<li>
-                        <a href="<%=path %>" class="menuA">组织结构设置</a>
+                        <a href="<%=path %>/deptManager" class="menuA">组织结构设置</a>
                     </li>
                     <li>
                         <a href="<%=path %>" class="menuA">职位设置</a>
@@ -73,10 +73,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <a href="<%=path %>/empManager" class="menuA">人事档案登记</a>
                     </li>
 					<li>
-                        <a href="<%=path %>" class="menuA">人事档案复核</a>
+                        <a href="<%=path %>/empCompound1" class="menuA">人事档案复核</a>
                     </li>
                     <li>
-                        <a href="<%=path %>" class="menuA">人事档案查询</a>
+                        <a href="<%=path %>/empQueryList" class="menuA">人事档案查询</a>
                     </li>
                     <li>
                         <a href="<%=path %>" class="menuA">人事档案变更</a>
