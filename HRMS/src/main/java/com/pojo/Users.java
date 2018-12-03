@@ -13,7 +13,18 @@ public class Users {
     private String salt;
 
     private String locked;
+    
+  /*  private UserRole userRole;*/
+    
 
+	/*public UserRole getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
+	}
+*/
 	public int getId() {
 		return id;
 	}

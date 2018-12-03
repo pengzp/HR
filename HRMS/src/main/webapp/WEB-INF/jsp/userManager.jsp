@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/index.css">
   </head>
   
-  <body>
+  <body style="background:url('<%=request.getContextPath() %>/static/images/back3.jpg') no-repeat">
   
     <table id="dg"></table>  
     
@@ -157,7 +157,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			        {field:"salt",title:'加盐',width:120,align:'left'},
 			        {field:"locked",title:'账号是否锁定',width:120,align:'left'},
 			        {field:"xxx",title:'操作',width:100,formatter: function(value,row,index){
-					return "<a href='#'>编辑</a> | <a href='#' onclick='del("+row.cust_id+")'>删除</a>";}    
+					return "<a href='javascript:void(0)' id='up'>编辑</a> | <a href='#' onclick='del("+row.cust_id+")'>删除</a>";}    
 			    	}
 			    ]],
 			    // 隔行换色
@@ -322,5 +322,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}); 
   		
   		}
+  		
+  		
+  		
   </script>
 </html>

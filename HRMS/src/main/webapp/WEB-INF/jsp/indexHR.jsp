@@ -2,6 +2,9 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+
+String name = request.getSession().getAttribute("uname").toString();
+
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -32,23 +35,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div data-options="region:'north',border:false" style="height:60px;background:url('<%=request.getContextPath() %>/static/images/back1.jpg') no-repeat;padding:10px;font-size:18px;line-height: 40px;position: relative">
     	<span style="margin-left:40px;font-size: 22px;line-height: 40px;color:white">人力资源系统管理</span>
 		
-		<a id="btn" href="<%=path%>/userLogin" class="easyui-linkbutton" data-options="iconCls:'icon-man'" style="margin-left:950px;">欢迎<span>管理员</span>登录</a>  
+		<a id="btn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-man'" style="margin-left:950px;">欢迎&nbsp;<span><%=name %></span>&nbsp;登录</a>  
 		
 		 
 		
-		<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-undo'">退出登录</a>  
+		<a id="btn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo'">退出登录</a>  
 
     	
     </div>
-    <div data-options="region:'west',split:true,title:'菜单'" style="width:250px;padding: 0">
-        <div id="aa" class="easyui-accordion" data-options="fit:true">
-            <div title="系统设置" data-options="iconCls:'icon-save'" style="overflow:auto;padding:0;">
-                <ul id="tree" class="easyui-tree">
+    <div data-options="region:'west',split:true,title:'系统功能菜单'" style="width:240px;padding: 0">
+        <div id="aa" class="easyui-accordion" data-options="fit:true" style="background:url('<%=request.getContextPath() %>/static/images/back3.jpg') no-repeat">
+            <div title="系统设置" data-options="iconCls:'icon-save'">
+                <ul id="tree" class="easyui-tree" style="color:white">
                     <li>
                         <a href="<%=path %>/userManager" class="menuA">用户管理</a>
                     </li>
 					<li>
-                        <a href="<%=path %>" class="menuA">组织结构设置</a>
+                        <a href="<%=path %>/deptManager" class="menuA">组织结构设置</a>
                     </li>
                     <li>
                         <a href="<%=path %>" class="menuA">职位设置</a>
@@ -73,10 +76,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <a href="<%=path %>/empManager" class="menuA">人事档案登记</a>
                     </li>
 					<li>
-                        <a href="<%=path %>" class="menuA">人事档案复核</a>
+                        <a href="<%=path %>/empCompound1" class="menuA">人事档案复核</a>
                     </li>
                     <li>
-                        <a href="<%=path %>" class="menuA">人事档案查询</a>
+                        <a href="<%=path %>/empQueryList" class="menuA">人事档案查询</a>
                     </li>
                     <li>
                         <a href="<%=path %>" class="menuA">人事档案变更</a>
@@ -129,18 +132,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                 </ul>
             </div>
+            <div title="待办列表" data-options="iconCls:'icon-reload'">
+                <ul id="tree" class="easyui-tree">
+                    <li>
+                        <a href="<%=path %>/sendEmail" class="menuA">发送邮件</a>
+                    </li>
+
+                </ul>
+            </div>
         </div>
 
     </div>
-    <div data-options="region:'east',split:true,title:'East'" style="width:120px;padding:10px;">
-    	<a id="btn" href="<%=path%>/userLogin" class="easyui-linkbutton" data-options="iconCls:'icon-man'">切换登录</a>  
+    <div data-options="region:'east',split:true,title:'我的工作平台'" style="width:150px;padding:10px;background:url('<%=request.getContextPath() %>/static/images/back3.jpg') no-repeat">
+    	<a id="btn" href="<%=path%>/outlogin" class="easyui-linkbutton" data-options="iconCls:'icon-man'">切换登录</a>  
 		<br>
 		<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-lock'">修改密码</a>  
 		
 		 
     	
     </div>
-    <div data-options="region:'south',border:false" style="height:50px;background:#000A3B;padding:10px;color:white">企业人力资源管理</div>
+    <div data-options="region:'south',border:false" style="height:50px;background:url('<%=request.getContextPath() %>/static/images/back3.jpg') no-repeat;padding:10px;color:white">企业人力资源管理</div>
     <div data-options="region:'center'">
         <div id="tt" class="easyui-tabs" data-options="fit:true"  style="background:#F3FDF6">
             <div title="首页" data-options="closable:true" style="overflow:auto;padding:20px;background:#F3FDF6">
@@ -158,6 +169,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	<script type="text/javascript">
 
         $(function () {
+         
+        	
             $(".menuA").click(function () {
                 //获得超链接的文本内容
                 var title = $(this).text();
@@ -187,7 +200,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             function createUrl(url){
                 return "<iframe src='"+url+"' style='border: 0;width: 100%;height: 95%;'></iframe>"
             }
-        })
+            
+            
+            $("#del").click(
+	            function(){
+	            	$.messager.confirm('确认','您确认想要删除记录吗？',function(r){    
+					    if (r){    
+					        alert('确认删除');    
+						}    
+					});  
+				})
+            
+        	})
 
     </script>
 </html>

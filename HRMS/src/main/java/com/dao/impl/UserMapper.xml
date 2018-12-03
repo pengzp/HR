@@ -29,4 +29,32 @@
 		update sys_user set usercode=#{usercode},username=#{username},
 			password=#{password},salt=#{salt},locked=#{locked} where id=#{id}
 	</update>
+	
+	<resultMap type="com.pojo.UserRole" id="getUserRole">
+		<id column="id" property="id"/>
+		<result column="user_id" property="user_id"/>
+		<result column="role_id" property="role_id"/>
+		<association property="users" javaType="com.pojo.Users" resultMap="getUsers"></association>
+		<association property="role" javaType="com.pojo.Role" resultMap="getRole"></association>
+	</resultMap>
+	<resultMap type="com.pojo.Users" id="getUsers">
+		<id column="id" property="id"/>
+		<result column="usercode" property="usercode"/>
+		<result column="username" property="username"/>
+		<result column="password" property="password"/>
+		<result column="salt" property="salt"/>
+		<result column="locked" property="locked"/>
+		<!-- <association property="com.pojo.UserRole" javaType="com.pojo.UserRole" resultMap="getUserRole"></association> -->
+	</resultMap>
+	<resultMap type="com.pojo.Role" id="getRole">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="available" property="available"/>
+		<!-- <association property="com.pojo.UserRole" javaType="com.pojo.UserRole" resultMap="getUserRole"></association> -->
+	</resultMap>
+	
+	<select id="getUsers" parameterType="com.pojo.Users" resultMap="getUserRole">
+		select u.usercode,u.username,r.name from sys_user u inner join user_role ur on u.id = ur.user_id inner join sys_role r on r.id = ur.role_id 
+			where usercode=#{usercode} and password=#{password}
+	</select>
 </mapper>

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.IUserDao;
+import com.pojo.UserRole;
 import com.pojo.Users;
 import com.service.IUserService;
 @Service("userService")
@@ -68,5 +69,9 @@ public class UserServiceImpl implements IUserService {
 		return iUserDao.editUsers(users);
 	}
 
-	
+	//查询用户,用作登录
+	public List<UserRole> getUsers(Users users) {
+		
+		return iUserDao.getUsers(users);
+	}
 }

@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <%
-    	request.getRequestDispatcher("WEB-INF/jsp/indexHR.jsp").forward(request, response);
+    	request.getRequestDispatcher("WEB-INF/jsp/login2.jsp").forward(request, response);
      %>
     
   </body>

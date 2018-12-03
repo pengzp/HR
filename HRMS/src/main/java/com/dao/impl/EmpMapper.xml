@@ -6,11 +6,28 @@
 	<insert id="addEmps" parameterType="com.pojo.Emps">
 		insert into emp values(sql3.nextval,#{dept_id},#{job_id},#{dept_name},#{job_num},#{job_name},
 		#{emp_name},#{sex},#{email},#{phone},#{idcard},#{address},#{registry},#{university},#{education},
-		#{specialty},#{salary},#{bank},#{booker},#{booker_date},#{social_security},#{banker},null,null,null,#{dangan})
+		#{specialty},#{salary},#{bank},#{booker},#{booker_date},#{social_security},#{banker},null,null,null,#{dangan},null)
 	</insert>
 	
 	<!-- 查询档案状态 -->
 	<select id="getDangEmps" parameterType="com.pojo.Emps" resultType="com.pojo.Emps">
 		select * from emp where dangan=#{dangan}
-	</select>													
+	</select>		
+	
+	<!-- 修改档案信息 -->
+	<update id="updateEmps" parameterType="com.pojo.Emps">
+		update emp set dept_id=#{dept_id},job_id=#{job_id},dept_name=#{dept_name},job_num=#{job_num},job_name=#{job_name},
+		emp_name=#{emp_name},sex=#{sex},email=#{email},phone=#{phone},idcard=#{idcard},address=#{address},registry=#{registry},university=#{university},education=#{education},
+		specialty=#{specialty},salary=#{salary},bank=#{bank},booker=#{booker},booker_date=#{booker_date},social_security=#{social_security},banker=#{banker},dangan=#{dangan} where emp_id=#{emp_id}
+	</update>
+	
+	<!-- 查询 -->
+	<select id="getEmpsList" resultType="com.pojo.Emps">
+		select * from emp 
+	</select>	
+	
+	<!-- 上传图片 -->		
+	<insert id="upload" parameterType="com.pojo.Image">
+		insert into image values(sql4.nextval,#{img_name},#{url})
+	</insert>							
 </mapper>
