@@ -19,7 +19,7 @@
 	
 	</insert>
 	<!-- 薪酬复核查询 -->
-	<select	id="getSignMessage" resultType="sign">
+	<select	id="getSignMessage" resultType="sign" >
 			select * from Sign 
 	</select>
 	<!-- 薪酬复核修改 -->
@@ -28,9 +28,21 @@
 	
 	
 	</update>
-
-
-
-
+	<!-- 薪酬标准查询 -->
+	<select id="getSigns" parameterType="sign" resultType="sign">
+	
+			select * from Sign where salary_id =#{salary_id} and check_status = #{check_status}
+			
+	</select>
+	<!-- 薪酬标准删除 -->
+	<delete id="delData" parameterType="int">
+			delete from Sign where salary_id =#{salary_id}
+	
+	</delete>
+	<!-- 薪酬标准修改查询 -->
+	<select id="getData" parameterType="int" resultType="sign">
+	
+			select * from Sign where salary_id =#{salary_id}
+	</select>
 
 </mapper>

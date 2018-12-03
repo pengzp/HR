@@ -6,6 +6,6 @@
         <wb-resource deploy-path="/" source-path="/target/m2e-jee/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <property name="context-root" value="HRMS"/>
-        <property name="java-output-path" value="/HRMS/WebRoot/WEB-INF/classes"/>
+        <property name="java-output-path" value="/HRMS/target/classes"/>
     </wb-module>
 </project-modules>
