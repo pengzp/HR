@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	
   </head>
   
-  <body>
+  <body style="background:url('<%=request.getContextPath() %>/static/images/back3.jpg') no-repeat">
   	<div>系统设置>>组织结构设置</div>
     <div id="box" style="width:400px;margin:20px auto">
     	<table id="dg"></table>

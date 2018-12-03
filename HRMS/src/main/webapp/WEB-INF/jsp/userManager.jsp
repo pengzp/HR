@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/index.css">
   </head>
   
-  <body>
+  <body style="background:url('<%=request.getContextPath() %>/static/images/back3.jpg') no-repeat">
   
     <table id="dg"></table>  
     

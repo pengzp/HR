@@ -2,6 +2,7 @@ package com.service;
 
 import java.util.List;
 
+import com.pojo.UserRole;
 import com.pojo.Users;
 
 public interface IUserService {
@@ -17,4 +18,7 @@ public interface IUserService {
 	//修改用户
 	public boolean editUsers(Users users);
 	
+	
+	//查询用户,用作登录
+	public List<UserRole> getUsers(Users users);
 }

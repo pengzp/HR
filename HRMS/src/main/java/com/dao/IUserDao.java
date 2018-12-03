@@ -2,6 +2,7 @@ package com.dao;
 
 import java.util.List;
 
+import com.pojo.UserRole;
 import com.pojo.Users;
 /**
  * 用户的操作
@@ -23,4 +24,7 @@ public interface IUserDao {
 	public boolean delUsers(int id);
 	//修改用户
 	public boolean editUsers(Users users);
+	
+	//查询用户,用作登录
+	public List<UserRole> getUsers(Users users);
 }

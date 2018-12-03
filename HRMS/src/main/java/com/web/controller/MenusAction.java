@@ -6,6 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MenusAction {
 
+	@RequestMapping("/indexHR")
+	public String getLocation(){
+		
+		return "indexHR";
+	}
+	
 	@RequestMapping("/userManager")
 	public String userList(){
 		
