@@ -39,7 +39,7 @@ String name = request.getSession().getAttribute("uname").toString();
 		
 		 
 		
-		<a id="btn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo'">退出登录</a>  
+		<a id="btn" href="<%=path %>/outlogin" class="easyui-linkbutton" data-options="iconCls:'icon-undo'">退出登录</a>  
 
     	
     </div>
@@ -117,6 +117,9 @@ String name = request.getSession().getAttribute("uname").toString();
                 <ul id="tree" class="easyui-tree">
                     <li>
                         <a href="customer.html" class="menuA">职工明细表</a>
+                    </li>
+                    <li>
+                        <a href="<%=path %>/dataSet" class="menuA">职工数据分析</a>
                     </li>
 
                 </ul>
